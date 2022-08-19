@@ -1,0 +1,21 @@
+[gcode_macro PURGE_LINE]
+description: Primes the nozzle on the left side of the bed
+gcode:
+    G1 X2 Y2 F3000                         ; move to start of purge
+    G92 E0									; reset extruder
+    G1 E4.0 F500                           ; pre-purge prime LENGTH SHOULD MATCH YOUR PRINT_END RETRACT
+    G1 Z0.20 F240                          ; move down
+    G92 E0									; reset extruder
+    G1 Y220 E15 F1200 						; prime the nozzle
+    G1 X2.2 F5000 							; move to side 
+    G92 E0									; reset extruder
+    G1 Y2 E15 F1200                         ; prime the nozzle
+    G1 X2.4 F5000 							; move to side 
+    G92 E0									; reset extruder
+    G1 Y220 E15 F1200 						; prime the nozzle
+    G1 X2.6 F5000 							; move to side
+    G92 E0									; reset extruder
+    G1 Y117 E7.5 F1200		     			; prime the nozzle to center
+    G92 E0									; reset extruder
+    G90
+
